@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { RxCross1 } from "react-icons/rx";
-
+import CartItem from "./CartItem";
+import Swal from "sweetalert2";
 
 const MyCart = () => {
   const { user } = useContext(AuthContext);
@@ -17,6 +17,79 @@ const MyCart = () => {
       //   .then((data) => console.log(data))
       .then((data) => setBookings(data));
   }, []);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/bookings/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = bookings.filter(
+                (booking) => booking._id !== id
+              );
+              setBookings(remaining);
+            }
+          });
+      }
+    });
+  };
+
+  const handleBookingConfirm = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You wont to confirm this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Confirm it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/bookings/${id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ status: "confirmed" }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+              Swal.fire({
+                title: "Confirmed!",
+                text: "Your Booking has been Confirmed.",
+                icon: "success",
+              });
+              const remaining = bookings.filter(
+                (booking) => booking._id !== id
+              );
+              const updated = bookings.find((booking) => booking._id === id);
+              updated.status = "confirmed";
+              const newBooking = [updated, ...remaining];
+              setBookings(newBooking);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -45,47 +118,12 @@ const MyCart = () => {
             <table className="table">
               <tbody>
                 {bookings.map((booking) => (
-                  <tr key={booking._id}>
-                    <th>
-                      <label>
-                        <button className="border p-2 rounded-full bg-[#444] text-white text-base font-thin">
-                          <RxCross1></RxCross1>
-                        </button>
-                      </label>
-                    </th>
-                    <td>
-                      <div className="flex items-center gap-3">
-                        <div className="avatar">
-                          <div className="w-36 h-36 rounded-lg">
-                            <img
-                              className=""
-                              src={booking.img}
-                              alt="Avatar Tailwind CSS Component"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="font-bold">
-                            {booking.service_name}
-                          </div>
-                          {/* <div className="text-sm opacity-50">United States</div> */}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="text-sm font-semibold">
-                      {booking.price}
-                      <br />
-                      {/* <span className="badge badge-ghost badge-sm">
-                            Desktop Support Technician
-                          </span> */}
-                    </td>
-                    <td className="text-sm font-semibold">{booking.date}</td>
-                    <th>
-                      <button className="btn bg-[#FF3811] text-white">
-                        Pending
-                      </button>
-                    </th>
-                  </tr>
+                  <CartItem
+                    key={booking._id}
+                    booking={booking}
+                    handleDelete={handleDelete}
+                    handleBookingConfirm={handleBookingConfirm}
+                  ></CartItem>
                 ))}
               </tbody>
             </table>

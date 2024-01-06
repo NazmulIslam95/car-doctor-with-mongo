@@ -6,6 +6,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -23,6 +24,12 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => console.log(error));
+
+    Swal.fire({
+      icon: "success",
+      title: "WOW...",
+      text: "Logged In Successfully!",
+    });
   };
 
   return (
@@ -89,7 +96,7 @@ const Login = () => {
                 </button>
 
                 <button
-                //   onClick={handleGoogleSignIn}
+                  //   onClick={handleGoogleSignIn}
                   className="bg-[#F5F5F8] rounded-full p-2"
                 >
                   <FcGoogle></FcGoogle>

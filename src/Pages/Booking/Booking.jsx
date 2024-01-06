@@ -3,6 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Booking = () => {
   const { user } = useContext(AuthContext);
@@ -31,19 +32,22 @@ const Booking = () => {
 
     fetch("http://localhost:5000/bookings", {
       method: "POST",
-      headers:{
-        'content-type': 'application/json'
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(booking)
+      body: JSON.stringify(booking),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.insertedId){
-          alert('Service Booked Successfully')
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "wow...",
+            text: "Service Booked Successfully!",
+          });
         }
       });
-      
   };
   return (
     <div>
@@ -101,6 +105,7 @@ const Booking = () => {
                 <div className="col-span-2 lg:col-span-1">
                   <div className="relative">
                     <input
+                      required
                       type="date"
                       name="date"
                       id="contact-form-name"

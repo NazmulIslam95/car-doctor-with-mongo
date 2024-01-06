@@ -6,6 +6,7 @@ import { HiOutlineLogin } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,6 +15,12 @@ const Navbar = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.log(error));
+
+    Swal.fire({
+      icon: "warning",
+      title: "Oops...",
+      text: "Logged Out Successfully!",
+    });
   };
 
   const navItems = (
@@ -97,7 +104,7 @@ const Navbar = () => {
             </>
           ) : (
             <Link to="/login">
-              <button onClick={handleLogout}>
+              <button>
                 <HiOutlineLogin></HiOutlineLogin>
               </button>
             </Link>
