@@ -1,10 +1,10 @@
-import logo from '../../assets/logo.svg'
+import logo from "../../assets/logo.svg";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-black text-white">
+    <footer className="footer  p-10 bg-black text-white">
       <aside>
-        <img  src={logo} alt="" />
+        <img src={logo} alt="" />
         <p>
           ACME Industries Ltd.
           <br />

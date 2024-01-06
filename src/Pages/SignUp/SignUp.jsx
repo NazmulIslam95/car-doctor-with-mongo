@@ -7,38 +7,49 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
-const Login = () => {
-  const { signIn } = useContext(AuthContext);
+const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
 
-  const handleLogin = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email, password);
+    const name = form?.name.value;
+    const email = form?.email.value;
+    const password = form?.password.value;
+    console.log(name, email, password);
 
-    signIn(email, password)
+    createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
       })
-      .catch((error) => console.log(error));
+      .then((error) => console.log(error));
   };
-
   return (
     <div className="max-w-7xl mx-auto mt-4">
-      {/* <div> */}
       <Navbar></Navbar>
-      <div className="hero min-h-screen mt-2">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
           <div className="w-1/2 text-center lg:text-left">
             <img src={loginImg} alt="" />
           </div>
           <div className="lg:w-1/2 card shrink-0 max-w-sm border">
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleSignUp} className="card-body">
               <h1 className="text-4xl text-center font-semibold mb-4 text-[#444]">
-                Login
+                Sign Up
               </h1>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -46,19 +57,19 @@ const Login = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="email"
+                  placeholder="Email"
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Confirm Password</span>
                 </label>
                 <input
                   type="password"
                   name="password"
-                  placeholder="password"
+                  placeholder="Password"
                   className="input input-bordered"
                   required
                 />
@@ -71,12 +82,12 @@ const Login = () => {
               <div className="form-control mt-6">
                 <input
                   type="submit"
-                  value="Sign In"
+                  value="Sign Up"
                   className="btn font-bold bg-[#FF3811] text-white hover:bg-white hover:text-[#FF3811] hover:border hover:border-[#FF3811]"
                 />
               </div>
             </form>
-            <p className="text-center capitalize">or Sign In With </p>
+            <p className="text-center capitalize">or Sign Up With </p>
             {/* ----------------------------- */}
             <div className="mx-auto my-6">
               <div className="flex items-center gap-3 sm:gap-x-5">
@@ -88,10 +99,7 @@ const Login = () => {
                   <FaLinkedinIn className="text-[#0A66C2]"></FaLinkedinIn>
                 </button>
 
-                <button
-                //   onClick={handleGoogleSignIn}
-                  className="bg-[#F5F5F8] rounded-full p-2"
-                >
+                <button className="bg-[#F5F5F8] rounded-full p-2">
                   <FcGoogle></FcGoogle>
                 </button>
               </div>
@@ -99,11 +107,11 @@ const Login = () => {
             {/* ----------------------------- */}
             <p className="text-center capitalize mb-8">
               Do not have an account?{" "}
-              <Link className="text-[#FF3811] font-bold" to="/signUp">
-                Sign Up
+              <Link className="text-[#FF3811] font-bold" to="/login">
+                Sign In
               </Link>
             </p>
-            {/* ==== */}
+            {/* ===== */}
           </div>
         </div>
       </div>
@@ -111,4 +119,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

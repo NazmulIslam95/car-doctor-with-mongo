@@ -2,10 +2,20 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-
-
+import { HiOutlineLogin } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   const navItems = (
     <>
       <li className="mr-2 text-[#444] font-semibold text-lg">
@@ -63,13 +73,38 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-4">
         <div className="text-2xl">
-            <HiOutlineShoppingBag></HiOutlineShoppingBag>
-        </div>
-        <div className="text-2xl">
-            <IoSearchSharp></IoSearchSharp>
+          {user?.email ? (
+            <>
+              <div className="flex gap-4">
+                <div className="text-2xl">
+                  <Link to="/myCart">
+                    <button>
+                      <HiOutlineShoppingBag></HiOutlineShoppingBag>
+                    </button>
+                  </Link>
+                </div>
+                <div className="text-2xl">
+                  <button>
+                    <IoSearchSharp></IoSearchSharp>
+                  </button>
+                </div>
+                <div className="text-2xl">
+                  <button onClick={handleLogout}>
+                    <HiOutlineLogout></HiOutlineLogout>
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : (
+            <Link to="/login">
+              <button onClick={handleLogout}>
+                <HiOutlineLogin></HiOutlineLogin>
+              </button>
+            </Link>
+          )}
         </div>
         <div>
-          <button className="btn btn-outline text-[#FF3811] btn-error hover:text-white">
+          <button className="btn btn-outline text-[#FF3811] hover:text-white hover:bg-[#FF3811] hover:border-[#FF3811] ">
             <Link to="/appointment">Appointment</Link>
           </button>
         </div>

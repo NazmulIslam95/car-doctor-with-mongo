@@ -7,10 +7,12 @@ import Services from "../../Components/Services/services";
 const Home = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <Banner></Banner>
-      <AboutUs></AboutUs>
-      <Services></Services>
+      <div className="max-w-7xl mx-auto">
+        <Navbar></Navbar>
+        <Banner></Banner>
+        <AboutUs></AboutUs>
+        <Services></Services>
+      </div>
       <Footer></Footer>
     </div>
   );
