@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const Booking = () => {
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
+  const navigate = useNavigate();
   const { title, _id, price, img } = service;
 
   const handleBooking = (event) => {
@@ -30,13 +31,17 @@ const Booking = () => {
     };
     console.log(booking);
 
-    fetch("http://localhost:5000/bookings", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
+    fetch(
+      "http://localhost:5000/bookings",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
       },
-      body: JSON.stringify(booking),
-    })
+      { withCredentials: true }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -48,6 +53,7 @@ const Booking = () => {
           });
         }
       });
+    navigate("/");
   };
   return (
     <div>

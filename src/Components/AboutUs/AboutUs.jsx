@@ -27,8 +27,11 @@ const AboutUs = () => {
             humour, or randomised words which do not look even slightly
             believable.
           </p>
-          <button className="btn btn-primary bg-[#FF3811] border-none text-white">
+          {/* <button className="btn btn-primary bg-[#FF3811] border-none text-white">
             Get More Info
+          </button> */}
+          <button className="btn btn-primary border-none text-white bg-[#FF3811] w-30 h-12 px-6 mb-4 mt-6 hover:bg-white rounded-none hover:text-[#FF3811] before:block before:-left-1 before:-top-1 before:bg-[#FF3811] before:absolute before:h-0 before:w-0 before:hover:w-[100%] before:hover:h-[100%]  before:duration-500 before:-z-40 after:block after:-right-1 after:-bottom-1 after:bg-[#FF3811] after:absolute after:h-0 after:w-0 after:hover:w-[100%] after:hover:h-[100%] after:duration-500 after:-z-40  relative inline-block">
+          Get More Info
           </button>
         </div>
       </div>

@@ -1,27 +1,27 @@
 import { RxCross1 } from "react-icons/rx";
-import { GrCheckboxSelected } from "react-icons/gr";
+import { GiCheckMark } from "react-icons/gi";
 
 const CartItem = ({ booking, handleDelete, handleBookingConfirm }) => {
   const { _id, img, service_name, price, date, status } = booking;
 
   return (
-    <tr>
-      <th>
+    <tr className="flex justify-between items-center">
+      <td>
         <label>
           {status ? (
-            <button className="border p-2 rounded-full">
-              <GrCheckboxSelected></GrCheckboxSelected>
+            <button className="border text-[#FF3811] text-xl p-2 rounded-full">
+              <GiCheckMark></GiCheckMark>
             </button>
           ) : (
             <button
               onClick={() => handleDelete(_id)}
-              className="border p-2 rounded-full bg-[#444] text-white text-base font-thin"
+              className="border p-2 rounded-full text-xl  bg-[#FF3811] hover:bg-transparent hover:text-[#FF3811] hover:border-[#FF3811] text-white"
             >
               <RxCross1></RxCross1>
             </button>
           )}
         </label>
-      </th>
+      </td>
       <td>
         <div className="avatar">
           <div className="w-36 h-36 rounded">
@@ -35,18 +35,18 @@ const CartItem = ({ booking, handleDelete, handleBookingConfirm }) => {
       <td className="text-sm font-semibold">{price}</td>
       <td className="text-sm font-semibold">{date}</td>
       {status === "confirmed" ? (
-        <th>
-          <p className="text-[#175a20] ">Confirmed</p>
-        </th>
+        <td>
+          <p className="text-[#FF3811] text-base font-semibold">Completed</p>
+        </td>
       ) : (
-        <th>
+        <td>
           <button
             onClick={() => handleBookingConfirm(_id)}
-            className="btn bg-[#FF3811] text-white"
+            className="btn bg-[#FF3811] hover:bg-transparent hover:text-[#FF3811] hover:border-[#FF3811] text-white"
           >
-            Pending...
+            Complete Booking
           </button>
-        </th>
+        </td>
       )}
     </tr>
   );

@@ -12,20 +12,31 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
-    logOut()
-      .then(() => {})
-      .catch((error) => console.log(error));
-
     Swal.fire({
+      title: "Are you sure?",
+      text: "You want to Log Out!",
       icon: "warning",
-      title: "Oops...",
-      text: "Logged Out Successfully!",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Log Out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {})
+          .catch((error) => console.log(error));
+        Swal.fire({
+          title: "Logged Out!",
+          text: "You Are Successfully Logged Out.",
+          icon: "success",
+        });
+      }
     });
   };
 
   const navItems = (
     <>
-      <li className="mr-2 text-[#444] font-semibold text-lg">
+      <li className="mr-2  text-[#444] font-semibold text-lg">
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="mr-2 text-[#444] font-semibold text-lg">
@@ -73,7 +84,6 @@ const Navbar = () => {
         <Link to="/">
           <img className="w-16 lg:w-full" src={logo} alt="" />
         </Link>
-        {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
@@ -111,9 +121,19 @@ const Navbar = () => {
           )}
         </div>
         <div>
-          <button className="btn btn-outline text-[#FF3811] hover:text-white hover:bg-[#FF3811] hover:border-[#FF3811] ">
+          {/* <button className="btn btn-outline text-[#FF3811] hover:text-white hover:bg-[#FF3811] hover:border-[#FF3811] ">
+            <Link to="/appointment">Appointment</Link>
+          </button> */}
+          <button className="btn btn-outline text-[#FF3811]  hover:bg-[#FF3811] hover:border-[#FF3811] border w-28 h-12 bg-transparent relative overflow-hidden group z-10 rounded-lg">
+            <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
+            <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
+            <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
+            <span className="absolute opacity-0 group-hover:opacity-100 duration-100 group-hover:duration-700 ease-out text-center z-10 text-white">
+              <Link to="/appointment">Appointment</Link>
+            </span>
             <Link to="/appointment">Appointment</Link>
           </button>
+          
         </div>
       </div>
     </div>

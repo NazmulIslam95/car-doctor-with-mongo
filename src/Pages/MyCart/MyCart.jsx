@@ -1,10 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+// /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import { AuthContext } from "../../Provider/AuthProvider";
 import CartItem from "./CartItem";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyCart = () => {
   const { user } = useContext(AuthContext);
@@ -12,11 +13,10 @@ const MyCart = () => {
 
   const url = `http://localhost:5000/bookings?email=${user.email}`;
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      //   .then((data) => console.log(data))
-      .then((data) => setBookings(data));
-  }, []);
+    axios.get(url, { withCredentials: true }).then((res) => {
+      setBookings(res.data);
+    });
+  }, [url]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -104,10 +104,9 @@ const MyCart = () => {
           }}
         >
           <div className="bg-gradient-to-r from-black h-full mt-12 rounded-lg">
-            <h1 className="text-white pt-36 pl-12 text-5xl font-bold">
+            <h1 className="text-white pt-36 pl-12  text-5xl font-bold">
               My Cart
             </h1>
-            {/* <button className="btn btn-primary">Get Started</button> */}
           </div>
         </div>
         <div className="my-12">
