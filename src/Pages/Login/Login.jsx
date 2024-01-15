@@ -4,13 +4,12 @@ import { FcGoogle } from "react-icons/fc";
 import { LiaFacebookF } from "react-icons/lia";
 import { FaLinkedinIn } from "react-icons/fa";
 import Navbar from "../../Components/Navbar/Navbar";
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAuth from "../../Components/Hooks/useAuth";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   console.log(location);
@@ -24,25 +23,25 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        const LoggedInUser = result.user;
-        console.log(LoggedInUser);
-        const user = { email };
-        axios
-          .post("http://localhost:5000/jwt", user, { withCredentials: true })
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(location?.state ? location?.state : "/");
-            }
-          });
-      })
+        console.log(result);
 
-      .catch((error) => console.log(error));
-    Swal.fire({
-      icon: "success",
-      title: "WOW...",
-      text: "Logged In Successfully!",
-    });
+        if (result.user.email) {
+          navigate(location?.state ? location?.state : "/");
+          Swal.fire({
+            icon: "success",
+            title: "WOW...",
+            text: "Logged In Successfully!",
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      });
   };
 
   return (

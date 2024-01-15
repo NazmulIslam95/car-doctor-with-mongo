@@ -1,25 +1,39 @@
-import { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
-import axios from "axios";
+import MovingComponent from "react-moving-text";
+import { TypeAnimation } from "react-type-animation";
+import useServices from "../Hooks/useServices";
 
 const Services = () => {
-  const [services, setServices] = useState([]);
-
-  const servicesApi = "http://localhost:5000/services";
-  useEffect(() => {
-    axios.get(servicesApi, { withCredentials: true }).then((res) => {
-      setServices(res.data);
-    });
-    //   fetch(servicesApi)
-    //     .then((res) => res.json())
-    //     .then((data) => setServices(data));
-  }, []);
+  const services = useServices();
+  
   return (
     <div className="mb-10">
       <div className="space-y-5 mb-12">
-        <p className="text-center text-[#FF3811] text-xl font-bold">Service</p>
+        <p className="text-center text-[#FF3811] text-xl font-bold">
+          <MovingComponent
+            type="flipSlowDown"
+            duration="2000ms"
+            delay="1s"
+            direction="normal"
+            timing="ease"
+            iteration="1"
+            fillMode="none"
+          >
+            Service
+          </MovingComponent>
+        </p>
         <h1 className="text-center text-[#151515] text-5xl font-bold">
-          Our Service Area
+          <TypeAnimation
+            preRenderFirstString={false}
+            sequence={[
+              500,
+              "Our Service Area", // initially rendered starting point
+              1000,
+              "", // initially rendered starting point
+            ]}
+            speed={10}
+            repeat={Infinity}
+          />
         </h1>
         <p className="text-center text-[#737373] text-base font-normal">
           the majority have suffered alteration in some form, by injected

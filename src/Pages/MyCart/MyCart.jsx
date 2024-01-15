@@ -5,20 +5,22 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { AuthContext } from "../../Provider/AuthProvider";
 import CartItem from "./CartItem";
 import Swal from "sweetalert2";
-import axios from "axios";
+import { TypeAnimation } from "react-type-animation";
+import useAxiosSecure from "../../Components/Hooks/useAxiosSecure";
 
 const MyCart = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
 
-  const url = `http://localhost:5000/bookings?email=${user.email}`;
+  const url = `/bookings?email=${user.email}`;
   useEffect(() => {
-    axios.get(url, { withCredentials: true }).then((res) => {
+    axiosSecure.get(url, { withCredentials: true }).then((res) => {
       setBookings(res.data);
     });
-  }, [url]);
+  }, [axiosSecure, url]);
 
-  const handleDelete = (id) => {
+  function handleDelete(id) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -29,7 +31,7 @@ const MyCart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-tau-ten.vercel.app/bookings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -49,7 +51,7 @@ const MyCart = () => {
           });
       }
     });
-  };
+  }
 
   const handleBookingConfirm = (id) => {
     Swal.fire({
@@ -62,7 +64,7 @@ const MyCart = () => {
       confirmButtonText: "Yes, Confirm it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-tau-ten.vercel.app/bookings/${id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -105,7 +107,12 @@ const MyCart = () => {
         >
           <div className="bg-gradient-to-r from-black h-full mt-12 rounded-lg">
             <h1 className="text-white pt-36 pl-12  text-5xl font-bold">
-              My Cart
+              <TypeAnimation
+                preRenderFirstString={false}
+                sequence={[500, "My Cart", 500, ""]}
+                speed={10}
+                repeat={Infinity}
+              />
             </h1>
           </div>
         </div>

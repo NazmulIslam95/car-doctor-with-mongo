@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { TypeAnimation } from "react-type-animation";
 
 const Booking = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const Booking = () => {
     console.log(booking);
 
     fetch(
-      "http://localhost:5000/bookings",
+      "https://car-doctor-server-tau-ten.vercel.app/bookings",
       {
         method: "POST",
         headers: {
@@ -40,7 +41,7 @@ const Booking = () => {
         },
         body: JSON.stringify(booking),
       },
-      { withCredentials: true }
+      { credentials: "include" }
     )
       .then((res) => res.json())
       .then((data) => {
@@ -53,7 +54,7 @@ const Booking = () => {
           });
         }
       });
-    navigate("/");
+    navigate("/myCart");
   };
   return (
     <div>
@@ -64,24 +65,25 @@ const Booking = () => {
           className="rounded-lg hidden lg:block bg-no-repeat"
           style={{
             backgroundImage: "url(https://i.ibb.co/gvcQFjF/checkout.png)",
-            backgroundSize: "100% 20rem", // Set the width to 100% and height to 20rem
-            height: "20rem", // Set the height to 20rem
-            width: "100%", // Set the width to 100%
+            backgroundSize: "100% 20rem",
+            height: "20rem",
+            width: "100%",
           }}
         >
           <div className="bg-gradient-to-r from-black h-full mt-12 rounded-lg">
             <h1 className="text-white pt-32 pl-12 text-5xl font-bold">
-              Check Out
+              <TypeAnimation
+                preRenderFirstString={false}
+                sequence={[500, " Check Out", 500, ""]}
+                speed={10}
+                repeat={Infinity}
+              />
             </h1>
-            {/* <button className="btn btn-primary">Get Started</button> */}
           </div>
         </div>
         <div className="max-w-7xl mx-auto mb-12">
           <form onSubmit={handleBooking} className="flex w-full space-x-3">
             <div className="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-[#F3F3F3] rounded-lg ">
-              {/* <div className="mb-6 text-3xl font-light text-center text-gray-800">
-                Contact us !
-              </div> */}
               <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
                 <div className="col-span-2 lg:col-span-1">
                   <div className="relative">

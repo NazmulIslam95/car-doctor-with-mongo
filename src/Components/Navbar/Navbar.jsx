@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     Swal.fire({
@@ -31,6 +32,7 @@ const Navbar = () => {
           icon: "success",
         });
       }
+      navigate("/");
     });
   };
 
@@ -40,16 +42,19 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="mr-2 text-[#444] font-semibold text-lg">
-        <NavLink to="about">About</NavLink>
+        <NavLink to="/about">About</NavLink>
       </li>
       <li className="mr-2 text-[#444] font-semibold text-lg">
-        <NavLink to="services">Services</NavLink>
+        <NavLink to="/services">Services</NavLink>
       </li>
       <li className="mr-2 text-[#444] font-semibold text-lg">
-        <NavLink to="blog">Blog</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
       </li>
       <li className="mr-2 text-[#444] font-semibold text-lg">
-        <NavLink to="contact">Contact</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
+      <li className="block lg:hidden mr-2 text-[#444] font-semibold text-lg">
+        <NavLink to="/appointment">Appointment</NavLink>
       </li>
     </>
   );
@@ -124,7 +129,7 @@ const Navbar = () => {
           {/* <button className="btn btn-outline text-[#FF3811] hover:text-white hover:bg-[#FF3811] hover:border-[#FF3811] ">
             <Link to="/appointment">Appointment</Link>
           </button> */}
-          <button className="btn btn-outline text-[#FF3811]  hover:bg-[#FF3811] hover:border-[#FF3811] border w-28 h-12 bg-transparent relative overflow-hidden group z-10 rounded-lg">
+          <button className="btn hidden lg:block btn-outline text-[#FF3811]  hover:bg-[#FF3811] hover:border-[#FF3811] border w-28 h-12 bg-transparent relative overflow-hidden group z-10 rounded-lg">
             <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
             <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
             <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -133,7 +138,6 @@ const Navbar = () => {
             </span>
             <Link to="/appointment">Appointment</Link>
           </button>
-          
         </div>
       </div>
     </div>
