@@ -1,0 +1,44 @@
+[
+    {
+        "_id": "abc123def456",
+        "img": "https://i.postimg.cc/t4X3hx0R/1.png",
+        "name": "Car Engine Plug",
+        "price": 29.99,
+        "rating": 4.5
+    },
+    {
+        "_id": "xyz789uvw012",
+        "img": "https://i.postimg.cc/g0j37bkf/2.png",
+        "name": "Car Air Filter",
+        "price": 49.99,
+        "rating": 3.8
+    },
+    {
+        "_id": "mno345pqr678",
+        "img": "https://i.postimg.cc/905Tz4th/3.png",
+        "name": "Cools Led Light",
+        "price": 39.99,
+        "rating": 4.0
+    },
+    {
+        "_id": "ijk901lmn234",
+        "img": "https://i.postimg.cc/3xng9x7X/4.png",
+        "name": "Cools Led Light",
+        "price": 59.99,
+        "rating": 4.2
+    },
+    {
+        "_id": "stu567vwx890",
+        "img": "https://i.postimg.cc/JhFjVYst/5.png",
+        "name": "Cools Led Light",
+        "price": 79.99,
+        "rating": 4.8
+    },
+    {
+        "_id": "opq345rst678",
+        "img": "https://i.postimg.cc/cH8ws73h/6.png",
+        "name": "Cools Led Light",
+        "price": 69.99,
+        "rating": 3.5
+    }
+]

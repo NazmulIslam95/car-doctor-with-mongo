@@ -41,7 +41,7 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-2 lg:gap-4">
-              <button className="btn border-none text-xs lg:w-28 lg:h-12 bg-[#FF3811] text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -50,7 +50,7 @@ const Banner = () => {
                 </span>
                 Discover More
               </button>
-              <button className="btn border hover:border-none text-xs lg:w-28 lg:h-12 bg-transparent text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -60,18 +60,18 @@ const Banner = () => {
                 Latest Project
               </button>
             </div>
-          </div> 
+          </div>
         </div>
         <div className="absolute flex justify-end gap-2 lg:gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
           <a
             href="#slide4"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white "
           >
             ❮
           </a>
           <a
             href="#slide2"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white"
           >
             ❯
           </a>
@@ -107,7 +107,7 @@ const Banner = () => {
               majority have suffered alteration in some form
             </p>
             <div className="flex gap-2 lg:gap-4">
-              <button className="btn border-none text-xs w-28 h-12 bg-[#FF3811] text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -116,7 +116,7 @@ const Banner = () => {
                 </span>
                 Discover More
               </button>
-              <button className="btn border hover:border-none text-xs w-28 h-12 bg-transparent text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -128,16 +128,16 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="absolute flex justify-end gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
+        <div className="absolute flex justify-end gap-2 lg:gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
           <a
-            href="#slide1"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide4"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white "
           >
             ❮
           </a>
           <a
-            href="#slide3"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide2"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white"
           >
             ❯
           </a>
@@ -173,8 +173,8 @@ const Banner = () => {
               There are many variations of passages of available, but the
               majority have suffered alteration in some form
             </p>
-            <div className="flex gap-2 lg:gap-4 ">
-              <button className="btn border-none text-xs w-28 h-12 bg-[#FF3811] text-white relative overflow-hidden group z-10 rounded-lg">
+            <div className="flex gap-2 lg:gap-4">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -183,7 +183,7 @@ const Banner = () => {
                 </span>
                 Discover More
               </button>
-              <button className="btn border hover:border-none text-xs w-28 h-12 bg-transparent text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -195,16 +195,16 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="absolute flex justify-end gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
+        <div className="absolute flex justify-end gap-2 lg:gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
           <a
-            href="#slide2"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide4"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white "
           >
             ❮
           </a>
           <a
-            href="#slide4"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide2"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white"
           >
             ❯
           </a>
@@ -240,8 +240,8 @@ const Banner = () => {
               There are many variations of passages of available, but the
               majority have suffered alteration in some form
             </p>
-            <div className="flex gap-2 lg:gap-4 ">
-              <button className="btn border-none text-xs w-28 h-12 bg-[#FF3811] text-white relative overflow-hidden group z-10 rounded-lg">
+            <div className="flex gap-2 lg:gap-4">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -250,7 +250,7 @@ const Banner = () => {
                 </span>
                 Discover More
               </button>
-              <button className="btn border hover:border-none text-xs w-28 h-12 bg-transparent text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -262,16 +262,16 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="absolute flex justify-end gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
+        <div className="absolute flex justify-end gap-2 lg:gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
           <a
-            href="#slide3"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide4"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white "
           >
             ❮
           </a>
           <a
-            href="#slide5"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide2"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white"
           >
             ❯
           </a>
@@ -307,8 +307,8 @@ const Banner = () => {
               There are many variations of passages of available, but the
               majority have suffered alteration in some form
             </p>
-            <div className="flex gap-2 lg:gap-4 ">
-              <button className="btn border-none text-xs w-28 h-12 bg-[#FF3811] text-white relative overflow-hidden group z-10 rounded-lg">
+            <div className="flex gap-2 lg:gap-4">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -317,7 +317,7 @@ const Banner = () => {
                 </span>
                 Discover More
               </button>
-              <button className="btn border hover:border-none text-xs w-28 h-12 bg-transparent text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -329,16 +329,16 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="absolute flex justify-end gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
+        <div className="absolute flex justify-end gap-2 lg:gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
           <a
             href="#slide4"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white "
           >
             ❮
           </a>
           <a
-            href="#slide6"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide2"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white"
           >
             ❯
           </a>
@@ -374,8 +374,8 @@ const Banner = () => {
               There are many variations of passages of available, but the
               majority have suffered alteration in some form
             </p>
-            <div className="flex gap-2 lg:gap-4 ">
-              <button className="btn border-none text-xs w-28 h-12 bg-[#FF3811] text-white relative overflow-hidden group z-10 rounded-lg">
+            <div className="flex gap-2 lg:gap-4">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -384,7 +384,7 @@ const Banner = () => {
                 </span>
                 Discover More
               </button>
-              <button className="btn border hover:border-none text-xs w-28 h-12 bg-transparent text-white relative overflow-hidden group z-10 rounded-lg">
+              <button className="btn border border-[#FF3811] hover:border-none text-xs lg:w-32 lg:h-12 bg-transparent text-[#FF3811] hover:text-white relative overflow-hidden group z-10 rounded-lg">
                 <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
                 <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
@@ -396,16 +396,16 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className="absolute flex justify-end gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
+        <div className="absolute flex justify-end gap-2 lg:gap-4 transform -translate-y-1/2 left-5 right-5 bottom-0">
           <a
-            href="#slide5"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide4"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white "
           >
             ❮
           </a>
           <a
-            href="#slide1"
-            className="btn btn-circle bg-[#ffffff1d] hover:bg-[#FF3811] text-white"
+            href="#slide2"
+            className="btn btn-circle border border-[#FF3811] bg-[#ffffff00] hover:bg-[#FF3811] text-[#FF3811] hover:text-white"
           >
             ❯
           </a>

@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg";
-import { IoSearchSharp } from "react-icons/io5";
+// import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { HiOutlineLogin } from "react-icons/hi";
 import { HiOutlineLogout } from "react-icons/hi";
@@ -105,11 +105,11 @@ const Navbar = () => {
                     </button>
                   </Link>
                 </div>
-                <div className="text-2xl">
+                {/* <div className="text-2xl">
                   <button>
                     <IoSearchSharp></IoSearchSharp>
                   </button>
-                </div>
+                </div> */}
                 <div className="text-2xl">
                   <button onClick={handleLogout}>
                     <HiOutlineLogout></HiOutlineLogout>

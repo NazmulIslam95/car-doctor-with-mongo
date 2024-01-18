@@ -1,6 +1,7 @@
 import person from "../../assets/images/about_us/person.jpg";
 import parts from "../../assets/images/about_us/parts.jpg";
 import MovingComponent from "react-moving-text";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -40,8 +41,14 @@ const AboutUs = () => {
             humour, or randomised words which do not look even slightly
             believable.
           </p>
-          <button className="btn btn-primary border-none rounded-lg text-white bg-[#FF3811] w-30 h-12 px-6 mb-4 mt-6 hover:bg-white  hover:text-[#FF3811] before:block before:rounded-lg before:-left-1 before:-top-1 before:bg-[#FF3811] before:absolute before:h-0 before:w-0 before:hover:w-[106%] before:hover:h-[100%]  before:duration-500 before:-z-40 after:block after:rounded-lg after:-right-1 after:-bottom-1 after:bg-[#FF3811] after:absolute after:h-0 after:w-0 after:hover:w-[106%] after:hover:h-[100%] after:duration-500 after:-z-40  relative inline-block">
-            Get More Info
+          <button className="btn hidden lg:block btn-outline text-[#FF3811]  hover:bg-[#FF3811] hover:border-[#FF3811] border w-32 h-12 bg-transparent relative overflow-hidden group z-10 rounded-lg">
+            <span className="absolute bg-white rotate-12 -inset-8 group-hover:duration-300 duration-700 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
+            <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-700 duration-500 scale-x-0 group-hover:scale-x-100 origin-left transform transition-transform"></span>
+            <span className="absolute bg-[#FF3811] rotate-12 -inset-8 group-hover:duration-500 duration-300 scale-x-0 group-hover:scale-x-50 origin-left transform transition-transform"></span>
+            <span className="absolute opacity-0 group-hover:opacity-100 duration-100 group-hover:duration-700 ease-out text-center z-10 text-white">
+              <Link to="/">Get More Info</Link>
+            </span>
+            <Link to="/">Get More Info</Link>
           </button>
         </div>
       </div>
